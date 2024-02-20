@@ -1,0 +1,75 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2759
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\csgray\c0;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww14080\viewh18000\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Phylo steps to complete the current Homework \
+\
+\
+\
+1) Open your terminal\
+\
+2) The command pwd will tell you where you are \
+\
+3) The command ls will show you everything in that current folder/location\
+ \
+4) The command cd will direct you to a specific folder/location. You have to type: the command followed by a space, for example: \'93cd Desktop\'94\
+\
+5)  Last week we created a new repository on GitHub called \'93
+\f1\fs22 \cf2 \CocoaLigature0 phylo563_project_sarah\'94 (in my case), we already downloaded this on our laptop so no need to \'93git clone\'94 at this point. You just need to find where you put that folder on your laptop. In my case, it\'92s on Desktop. So, using the commands mentioned before you can go to the folder where you downloaded your repo. For example: \'93cd Desktop -> ls > cd phylo563_project_sarah\'94. Now I am inside my phylo563_project_sarah folder. Ls will show me all my files inside the folder. In my case, my notebook for the project is called \'93notebook_log.md\'94\
+\
+6) I can now open this md file using the command \'93Open\'94. For example: open notebook_log.md. This should open the text application and should be able to add all your information regarding your project. After writing the description you can save your file and close it. p.s.: you can open it again to be sure it was saved, but I don\'92t think this will be an issue. \
+\
+7) Now that you already made your changes we will open a git commit to signalize the changes in your file. To do so you will first type the command \'93git add .\'94 (Don\'92t forget to put the dot), this opens the commit. Be sure that you are opening the commit in the same folder that your notebook.log is, to assure this you can use the pwd command. \
+\
+8) Now, you can put a message to you commit by typing the command git commit -m\'94 write your message here inside the quotes\'94. (DON\'92T FORGET TO PUT THE -m \'93\'85\'94 AND WRITE THE NAME OF THE COMMIT). For example: git commit -m" Sarah's project description\'94. \
+\
+This command should give you an output very similar to this: \
+ \'93[main 0712d97]  Sarah's project description\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+ Committer: Sarah Caroline de Souza <sarahsouza@Sarahs-MacBook-Air.local>\
+Your name and email address were configured automatically based\
+on your username and hostname. Please check that they are accurate.\
+You can suppress this message by setting them explicitly. Run the\
+following command and follow the instructions in your editor to edit\
+your configuration file:\
+\
+    git config --global --edit\
+\
+After doing this, you may fix the identity used for this commit with:\
+\
+    git commit --amend --reset-author\
+\
+ 3 files changed, 14 insertions(+), 2 deletions(-)\
+ create mode 100644 .DS_Store\
+ delete mode 160000 phylogenetics-class\'94 #Note that this is basically  telling me the changes/insertions/deletions I made on the md file. \
+\
+9) Be sure that the output looks correct and now finalize your commit using \'93git push\'94. This will send the changes of your laptop to your repository on the git hub.\
+\
+The output should look like this: \
+(base) sarahsouza@Sarahs-MacBook-Air phylo563_project_sarah % git push\
+Enumerating objects: 6, done.\
+Counting objects: 100% (6/6), done.\
+Delta compression using up to 8 threads\
+Compressing objects: 100% (4/4), done.\
+Writing objects: 100% (4/4), 1.75 KiB | 1.75 MiB/s, done.\
+Total 4 (delta 1), reused 0 (delta 0), pack-reused 0\
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.\
+To https://github.com/sarahcarolinedesouza/phylo563_project_sarah.git\
+   041ff02..0712d97  main -> main \
+\
+Note that this tells me that the commit was successful and should be on YOUR PERSONAL repo. \
+\
+10) Using \'93git log\'94 you get the \'93code to your commits\'94 Be sure to get the most recent code (These codes will be in yellow). Copy the most recent yellow code.\
+\
+11) Now, let\'92s create your commit link using the code you just copied: go to your Gethub project (the one your notebook.log is inside). Now on the http link, you can delete everything after the project\'92s name on the link, you write a \'93/commit/\'93 then you paste the yellow code you copied from the terminal, and your commit link is ready. \
+\
+See mine: {\field{\*\fldinst{HYPERLINK "https://github.com/sarahcarolinedesouza/phylo563_project_sarah/commit/0712d9772538a46c7ecf0e90f6e6ece921d7a940"}}{\fldrslt https://github.com/sarahcarolinedesouza/phylo563_project_sarah/commit/0712d9772538a46c7ecf0e90f6e6ece921d7a940}}\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+THIS IS WHAT YOU WILL SUBMIT IN CANVAS. \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\
+}
