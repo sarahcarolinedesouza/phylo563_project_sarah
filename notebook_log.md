@@ -35,3 +35,52 @@ February 20th, 2024 - Details for homework: Aligning my data
 * I tried to run the code but unfortunately, my terminal output is an error that says t_coffee command was not found, even though it is already installed and I already created a path to the command as I was oriented by online video tutorials. 
 
 * Future to do: I need to solve this issue so I can actually run the code. 
+
+
+March 5th, 2024 - Details for homework
+
+Because of technical issues, I wasn't able to align my data yet so I cannot run the codes using my actual data. However, once I get the data I will run both of the following codes using R:
+
+The NJ tree
+"{R}: 
+install.packages("adegenet", dep=TRUE)
+install.packages("phangorn", dep=TRUE)
+
+library(ape)
+library(adegenet)
+library(phangorn)
+
+dna <- fasta2DNAbin(file="put my data address")
+
+D <- dist.dna(dna, model="TN93") #Tamura and Nei 1993 model which allows for different rates of transitions and transversions, heterogeneous base frequencies, and between-site variation of the substitution rate.
+
+tre <- nj(D)
+
+tre <- ladderize(tre)
+
+plot(tre, cex=.6)
+title("A simple NJ tree")"
+
+
+The Parsimony method
+"{R}: 
+install.packages("adegenet", dep=TRUE)
+install.packages("phangorn", dep=TRUE)
+
+library(ape)
+library(adegenet)
+library(phangorn)
+
+dna <- fasta2DNAbin(file="put my data address")
+
+## read as phangorn object:
+dna2 <- as.phyDat(dna)
+
+tre.ini <- nj(dist.dna(dna,model="raw"))
+parsimony(tre.ini, dna2)
+
+tre.pars <- optim.parsimony(tre.ini, dna2)
+
+plot(tre.pars, cex=0.6)"
+
+Future to do: run the alignment method to align my data and try to run the above codes for my tree. 
