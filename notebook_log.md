@@ -84,3 +84,21 @@ tre.pars <- optim.parsimony(tre.ini, dna2)
 plot(tre.pars, cex=0.6)"
 
 Future to do: run the alignment method to align my data and try to run the above codes for my tree. 
+
+3/21/2024 - Choosing a maximum likelihood method that you like the best on your project dataset (it does not have to be RAxML or IQ-Tree)
+
+* As for today, I finished all my sequences, resulting in 240 viable sequences and around 20 different species of Oomycete. However,  not all these sequences I was able to retrieve a consensus, so for now I am working on aligning the sequences I was able to get a consensus then I can download the FASTA format to move forward with the alignment. 
+
+* Because of the technical issues with downloading the alignment tools, I will use the software Geneious Prime to proceed with the alignment. This software has the MUSCLE alignment available, which is the method I will use to align my dataset. This tool allows a progressive alignment strategy, initially constructing a guide tree based on pairwise sequence similarities using a distance matrix. Then, it will run a series of pairwise alignments, progressively aligning sequences based on the guide tree. The algorithm then processes the alignment by maximizing a score based on a log-expectation function, considering the probabilities of observing the aligned residues in related sequences. 
+
+p.s. 1: I ran the alignment as an experiment with a smaller dataset to check and the software seemed to retrieve a good alignment.
+
+p.s. 2: Once I am going through the alignment process I will write the commands and all the details of what I am doing to get to that alignment and log in on my notebook_log.md to keep track of my steps and allow reproducibility in the future. 
+
+* Unexpectedly, I sequenced an unrelated fungal species. I will use this sequence as well to align along with my dataset to use it for future rooting of the tree. 
+
+* Once I have the alignment data I can perform the tree. I will not use Geneious Prime to build my tree (although the software gives us that possibility). My dataset is not big or extensive so I could use either of the maximum likelihood methods (RAxML or IQ-Tree) to build it. However, after the paper discussions in our class, I will most likely choose IQ-Tree based on the fact that I am a little more familiar with this method and the updated version seems to give as lot of very useful and "more modern" tools.
+
+p.s.: this choice may change in the future based on any technical difficulties on installing or using it. 
+
+
