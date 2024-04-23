@@ -132,3 +132,16 @@ end;"
 
 * I can save the output in different formats, but for my purposes, I will choose to save the output of this proposed tree as .tre, so that I can proceed to alter its layout using software like R, for example, with R packages that allow me to manipulate phylogenetic trees. 
 
+
+4/23/2024 - Coalescent 
+
+* Although I will not perform a coalescent method in my project, there are many ways to do so. The one we learned in the current class is using the tool called BEAST, which can analyze complex evolutionary scenarios that involve sequence data from multiple genes or markers. 
+
+* To perform the analysis we need to first of all, download BEAST from its website ((http://beast.community/) and install it according to the developer's recommendations.  
+
+* After that I will have to transform my aligned file from a NEXUS file to an XML file, we can use BEAUti (Bayesian Evolutionary Analysis Utility), included in the BEAST software suite.
+
+* Following that I can configure the Coalescent Model: Within BEAUti:; load my transformed data, and set the substitution model. Once I combine all this info with my data I can run BEAST:bash using the code: 
+
+beast -beagle -beagle_SSE -threads auto my_file_name.xml
+   
