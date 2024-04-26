@@ -1,3 +1,5 @@
+Notebook-log for Phylogenetics – Final Version 
+
 Accessing Phytophthora and Pythium populations in soybean fields in the state of Wisconsin
 
 * Pythium and Phytophthora are microorganisms that resemble fungi and are often referred to as water mold since they need water for life-cycle completion. These microorganisms can survive in the soil for many years and under the right environmental conditions (flooded soil and warmer temperatures) they can develop and infect soybean roots. Although these pathogens infect the soybeans primarily when the plants are in the seedling stages, they can cause disease during the whole plant cycle. The symptoms can be secondary root bruises, yellowing leaves, dark brown lesions on the stem, and even complete plant death. 
@@ -6,142 +8,114 @@ Accessing Phytophthora and Pythium populations in soybean fields in the state of
 
 * For this reason, one of the main goals of the project is to assess the population of these oomycetes and their geographical distribution in Wisconsin to provide a better understanding of their behavior and the correct management tools available against them. 
 
-* To accomplish our goal, in the past two seasons, we received around 400 soil samples from soybean fields throughout the main producer regions in WI. After deploying techniques to bait Pythium and Pytophthora and molecular assays to extract their genetic material we obtained around 300 DNA samples that were sent to sequencing (SANGER sequencing) using the primers ITS 6 (forward) and ITS 4 (reverse). 
+* To accomplish our goal, in the past two seasons, we received around 400 soil samples from soybean fields throughout the main producer regions in WI. After deploying techniques to bait Pythium and Pytophthora and molecular assays to extract their genetic material we obtained around 300 DNA samples that were sent to sequencing (SANGER sequencing) using the primers ITS 6 (forward) and ITS 4 (reverse).
 
- 
-* Currently, we do not have all the sample sequences but as soon as these data are collected we will proceed to perform the quality control steps with FastQC on the raw files and then use the software Geneious Prime for set paired reads of the forward and reverse, trim the edges of both sequences using BBDUK, and finally, perform an aligning/assembly of the sequences using De Novo Assemble. 
+First Part – Assembling my sequences.
 
-* Similar work was already made previously in different states (Rojas et al., 2017; McCoy et al., 2022) and will be used as a reference. The scripts used by Rojas et al. 2016 for data treatment and analysis, provided on (https://github.com/Chilverslab/Rojas_Survey_Phytopath_2016) will also be used as reference during the current project.
+For the year 2023, I successfully collected 310 sequences that will be used for the Phylogenetic tree (in the future I will incorporate my 2024 isolate’s sequences). 
 
+•	The DNA samples were sent to be SANGER sequences using ITS 6 (forward primer) and ITS 4 (reverse primer). The results were received in ab1 files, I used the paid version of the software Geneious Prime to perform the assembling and alignment. I uploaded all the ab1 files to a folder called “Alignment” on the Geneious Prime software main page. 
 
+•	To decide if the sequences could be used for my project, I looked at the quality of the sequence, if both sequences of one sample (forward and reverse) were superior to 87% (personal choice) I would proceed to assemble them. Otherwise, if less than 87%, I discarded them from my collection. 
 
-February 20th, 2024 - Details for homework: Aligning my data 
+•	If I proceeded to use the I would trim the poor-quality edges of all the samples. To do so, I allowed editing of the sequence on the buttons “allow editing”, “annotate and predict “, and “Trim ends”.  This popped a new window to display the trimming options. On this new window, I selected the following settings for all the used sequences and pressed ok.
 
-
-* As for today, I sequenced around 200 samples using the ITS 4 and 6. I used the software Ingenious to assemble both strains into one consensus strain. I will the consensus use to identify the species in the NCBI public database and proceed with the alignment to further tree building. 
-
-* So far, I have around 20 different species identified, and therefore, this is the number of species and sequences I will work through my project (the number will probably increase or decrease as I progress through my research). 
- 
-* Because of technical issues downloading and installing ClustalW and MUSCLE, I will use default T-Coffee to align my DNA sequences. 
-
-* To proceed with the alignment I will copy all the consensus sequences for the different species from the Ingenious software I used to assemble using the FASTA format (this format can be read by T-Coffee) in a text file and save it as "oomyceteAA.txt". 
-
-* After that and assuming that T-Coffee is properly installed on my laptop (still working on some technical issues), I can open the terminal and run the following code: 
+“Annotate new trimmed regions.”
+“Error probability limit: 0.01”
+“Trim 5` End at last (I left the “at last” part empty)”
+“Trim 3` End at last (I left the “at last” part empty)”
 
 
-"(base) sarahsouza@Sarahs-MacBook-Air ~ % t_coffee "oomyceteAA.txt"."
+•	After trimming the ends, I proceeded to assemble the forward and the reverse sequences to create a consensus sequence file. To do so I opened the tool “align/assemble” on the tool options at the top of the page and selected “De Novo Assemble” option. This opened a new window where I selected the following settings and pressed ok. 
+
+“Dissolve contigs and re-assemble.”
+“Assembler: TadPole” 
+“Sensitivity: Medium Sensitivity/Fast”
+“Assembly name: #for the name I put the name of my isolate.”
+“Save assembly report.”
+“Save consensus sequences.”
+
+P.S.: The TadPole kmer-based assembler, with additional capabilities of error-correcting and extending reads. Compared to most other assemblers, it is incredibly fast, has a very low misassembly rate, and is very adept at handling extremely irregular or super high coverage distributions.
+
+•	The outcome from the steps above was 155 consensus sequences of the forward and reverse primers that were then used for the alignment of multiple sequences. I selected all the consensus sequences displayed on the “Alignment” folder created on the main screen of Geneious Prime and proceeded with the alignment. I selected the “Alignment/Assemble” tool again but then chose the “Multiple Align…” option. A new window popped up, where I made the following selections and pressed ok (after pressing ok it will run the alignment and notice that this can take a while depending on how many sequences will be aligned).
+
+“MUSCLE Alignment” #This uses the Muscle 5.1 by Robert C. Edgar
+“Algorithm PPP”
+
+P.S. 2: MUSCLE stands for MUltiple Sequence Comparison by Log-Expectation. MUSCLE is claimed to achieve both better average accuracy and better speed than ClustalW2 or T-Coffee.
+
+•	After running the steps above, it will automatically create a new file called “Nucleotide alignment”. I select this file and go to the “File” option on the top of my screen, put my mouse on “Export”, then “Documents”, this pops a new window that allows you to choose what format to export the alignment file to my laptop. For my project, I used the NEXUS and FASTA format. I proceeded to save this file in the same folder I have my IQ-tree reproducible file. 
+
+Alignment file information: I aligned 155 consensus files that had various lengths from 417 to 1,011 bp. The final alignment was obtained using MUSCLE and had a 1,399 bp length. It was saved in a NEXUS and FASTA format under the name “oomycete_alignment.nex” and “oomycete_alignment.fasta” in the path: “/Users/sarahsouza/Downloads/iqtree-2.3.2-macOS-intel/bin/ oomycete_alignment.nex” and “/Users/sarahsouza/Downloads/iqtree-2.3.2-macOS-intel/bin/ oomycete_alignment.fasta”
+
+Second Part – Creating a Neighbor-Joining Tree. 
+
+To create a tree based on the pairwise distance, I first created a tree using the NJ algorithm which is known to be fairly accurate and faster. However, distance methods reduce the phylogenetic information to one value per pair of sequences, so many times regarded as inferior compared to character-based methods (less stat power due to the loss of info). 
+
+•	The tree was created in RStudio (version 2023.09.1+494) using the “adegenet”, “phangorn”, and  “ape” packages, followed by the commands below”
+
+“# To install the necessary packages:
+install.packages(“ape)”
+
+“# To load the necessary packages:
+library(ape)”
+
+“# To load my data:
+oomycete <- fasta2DNAbin(file="/Users/sarahsouza/Downloads/iqtree-2.3.2-macOS-intel/bin/ oomycete_alignment.fasta")
+
+“# To compute the genetic distances using Tamura and Net 1993.
+distance_oomycete <- dist.dna(oomycete, model="TN93")”
+
+“#To get the Neighbor-Joining Tree:
+nj_tree <- nj(distance_oomycete)”
+
+“# To plot the tree”
+plot(nj_tree, 
+main="Pythium and Phytophthora genera Phylogenetic tree",
+cex=0.2)”
+
+Third Part – Creating an IQ Tree. 
+
+•	IQ-Tree is a fast and effective stochastic algorithm to infer phylogenetic trees by maximum likelihood, it combines elements of hill-climbing algorithms, random perturbation of current best trees , and a broad sampling of initial starting trees. It claims higher likelihoods are achieved relative to RAxML and PhyML.
+
+•	With the saved Nexus file saved on the same folder as my IQ-tree executor, I can now create a second tree using the command line IQ-tree “software”. 
+
+•	On my terminal, I can proceed to go to the file in which IQ Tree and the nexus files are saved. Using the following commands: 
+
+“cd Downloads”
+“cd iqtree-2.3.2-macOS-intel”
+“cd bin”
+“ls                                  
+iqtree2					oomycete2_alingment.fasta.mldist
+oomycete2_alingment.fasta.bionj		oomycete2_alingment.fasta.model.gz
+oomycete2_alingment.fasta.ckp.gz	oomycete2_alingment.fasta.treefile
+oomycete2_alingment.fasta.iqtree	sarah_oomycete_allignment.nex
+oomycete2_alingment.fasta.log     oomycete_alignment.nex
+
+•	In this directory, I can now run the code to create my tree:
+
+“./iqtree2 -s oomycete_alignment.nex”
+
+•	This command will start running and show the likelihood calculations for the trees. This step can also take a while depending on how big the alignment is and how many taxa I have. 
+
+•	After running it will give me the output of the analysis and the nex.iqtree, nex.treefile, and the nex.log. The last one will present me the information about the best tree found. I will use the .treefile to create a presentable tree using RStudio. 
 
 
-* I tried to run the code but unfortunately, my terminal output is an error that says t_coffee command was not found, even though it is already installed and I already created a path to the command as I was oriented by online video tutorials. 
+IQ-Tree information: The tree created for my data using IQ-Tree presented an optimal log-likelihood and best score found of -14427.901. The base frequencies were A: 0.208; C: 0.193; G: 0.277; and T: 0.322. The total tree length was 11.156 and 560 total interactions. 
 
-* Future to do: I need to solve this issue so I can actually run the code. 
+•	Using the following codes from the ape package in RStudio I was able to create the tree from the “oomycete_alignment.nex.iqtree” saved on the same folder as my IQ-tree executor. 
 
+“# To install and load the ape package:
+install.packages("ape")
+library(ape)"
 
-March 5th, 2024 - Details for homework
+"# To load your tree from the .tree file
+tree <- read.tree("/Users/sarahsouza/Downloads/iqtree-2.3.2-macOS-intel/bin/oomycete_alignment.nex.treefile")"
 
-Because of technical issues, I wasn't able to align my data yet so I cannot run the codes using my actual data. However, once I get the data I will run both of the following codes using R:
+# To plot the tree
 
-The NJ tree
-"{R}: 
-install.packages("adegenet", dep=TRUE)
-install.packages("phangorn", dep=TRUE)
+"plot(tree,
+           main="Pythium and Phytophthora genera Phylogenetic tree",
+           show.tip.label = TRUE, 
+           cex = .2)"
 
-library(ape)
-library(adegenet)
-library(phangorn)
-
-dna <- fasta2DNAbin(file="put my data address")
-
-D <- dist.dna(dna, model="TN93") #Tamura and Nei 1993 model which allows for different rates of transitions and transversions, heterogeneous base frequencies, and between-site variation of the substitution rate.
-
-tre <- nj(D)
-
-tre <- ladderize(tre)
-
-plot(tre, cex=.6)
-title("A simple NJ tree")"
-
-
-The Parsimony method
-"{R}: 
-install.packages("adegenet", dep=TRUE)
-install.packages("phangorn", dep=TRUE)
-
-library(ape)
-library(adegenet)
-library(phangorn)
-
-dna <- fasta2DNAbin(file="put my data address")
-
-## read as phangorn object:
-dna2 <- as.phyDat(dna)
-
-tre.ini <- nj(dist.dna(dna,model="raw"))
-parsimony(tre.ini, dna2)
-
-tre.pars <- optim.parsimony(tre.ini, dna2)
-
-plot(tre.pars, cex=0.6)"
-
-Future to do: run the alignment method to align my data and try to run the above codes for my tree. 
-
-3/21/2024 - Choosing a maximum likelihood method that you like the best on your project dataset (it does not have to be RAxML or IQ-Tree)
-
-* As for today, I finished all my sequences, resulting in 240 viable sequences and around 20 different species of Oomycete. However,  not all these sequences I was able to retrieve a consensus, so for now I am working on aligning the sequences I was able to get a consensus then I can download the FASTA format to move forward with the alignment. 
-
-* Because of the technical issues with downloading the alignment tools, I will use the software Geneious Prime to proceed with the alignment. This software has the MUSCLE alignment available, which is the method I will use to align my dataset. This tool allows a progressive alignment strategy, initially constructing a guide tree based on pairwise sequence similarities using a distance matrix. Then, it will run a series of pairwise alignments, progressively aligning sequences based on the guide tree. The algorithm then processes the alignment by maximizing a score based on a log-expectation function, considering the probabilities of observing the aligned residues in related sequences. 
-
-p.s. 1: I ran the alignment as an experiment with a smaller dataset to check and the software seemed to retrieve a good alignment.
-
-p.s. 2: Once I am going through the alignment process I will write the commands and all the details of what I am doing to get to that alignment and log in on my notebook_log.md to keep track of my steps and allow reproducibility in the future. 
-
-* Unexpectedly, I sequenced an unrelated fungal species. I will use this sequence as well to align along with my dataset to use it for future rooting of the tree. 
-
-* Once I have the alignment data I can perform the tree. I will not use Geneious Prime to build my tree (although the software gives us that possibility). My dataset is not big or extensive so I could use either of the maximum likelihood methods (RAxML or IQ-Tree) to build it. However, after the paper discussions in our class, I will most likely choose IQ-Tree based on the fact that I am a little more familiar with this method and the updated version seems to give as lot of very useful and "more modern" tools.
-
-p.s.: this choice may change in the future based on any technical difficulties on installing or using it. 
-
-4/11/2024 - Performing Bayesian method in my data
-
-* Once I have the alignment file (FASTA) for my data, I will have to convert it before running Mr. Bayes, since it only reads nexus files. 
-
-* With the nexus file saved on my laptop, I will next create a mrbayes block in a separate txt file. In this file I will put the following items and save it: 
-
-"begin mrbayes;
- set autoclose=yes;
- prset brlenspr=unconstrained:exp(10.0);
- prset shapepr=exp(1.0);
- prset tratiopr=beta(1.0,1.0);
- prset statefreqpr=dirichlet(1.0,1.0,1.0,1.0);
- lset nst=* rates=gamma ngammacat=4;
- mcmcp ngen=1,000,000 samplefreq=10 printfreq=100 nruns=1 nchains=3 savebrlens=yes;
- outgroup Anacystis_nidulans;
- mcmc;
- sumt;
-end;" 
-
-**** This is a file to insert the prior information to create the desired trees. For my data notice that I put the substitution model with a star  (not = *) because I will decide what model to use based on the one outputted by IQ Tree, once I know what model I will use I will do the proper * substitution to inform what model I will proceed using. Note that I also changed the generation number to 1,000,000 (ngen=1,000,000). For the rest of the lines, you noticed that in this case, I did not change the standard parameters because I don't have previous knowledge about my data to change the priors, so I will go ahead using the same. ****
-
-
-* Next I have to "merge" my block file with my nex data file using the code shown below as an example: 
-"cat algaemb.nex mbblock.txt > algaemb-mb.nex"
-
-* Once merged, I can go ahead and run the command mb to run mrBayes on my "-mb.nex" file, like in the example below:
-
-"mb algaemb-mb.nex"
-
-* I can save the output in different formats, but for my purposes, I will choose to save the output of this proposed tree as .tre, so that I can proceed to alter its layout using software like R, for example, with R packages that allow me to manipulate phylogenetic trees. 
-
-
-4/23/2024 - Coalescent 
-
-* Although I will not perform a coalescent method in my project, there are many ways to do so. The one we learned in the current class is using the tool called BEAST, which can analyze complex evolutionary scenarios that involve sequence data from multiple genes or markers. 
-
-* To perform the analysis we need to first of all, download BEAST from its website ((http://beast.community/) and install it according to the developer's recommendations.  
-
-* After that I will have to transform my aligned file from a NEXUS file to an XML file, we can use BEAUti (Bayesian Evolutionary Analysis Utility), included in the BEAST software suite.
-
-* Following that I can configure the Coalescent Model: Within BEAUti:; load my transformed data, and set the substitution model. Once I combine all this info with my data I can run BEAST:bash using the code: 
-
-beast -beagle -beagle_SSE -threads auto my_file_name.xml
-   
