@@ -101,7 +101,7 @@ oomycete2_alingment.fasta.log     oomycete_alignment.nex
 •	After running it will give me the output of the analysis and the nex.iqtree, nex.treefile, and the nex.log. The last one will present me the information about the best tree found. I will use the .treefile to create a presentable tree using RStudio. 
 
 
-IQ-Tree information: The tree created for my data using IQ-Tree presented an optimal log-likelihood and best score found of -14427.901. The base frequencies were A: 0.208; C: 0.193; G: 0.277; and T: 0.322. The total tree length was 11.156 and 560 total interactions. 
+IQ-Tree information: The tree created for my data using IQ-Tree presented an optimal log-likelihood and best score found of -14427.901. The base frequencies were A: 0.208; C: 0.193; G: 0.277; and T: 0.322. The total tree length was 11.156 and 560 total interactions. Best-fit model: TN+F+I+R5 chosen according to BIC.
 
 •	Using the following codes from the ape package in RStudio I was able to create the tree from the “oomycete_alignment.nex.iqtree” saved on the same folder as my IQ-tree executor. 
 

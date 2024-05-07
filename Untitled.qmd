@@ -1,0 +1,23 @@
+
+
+```{r}
+# Install and load the ape package if you haven't already
+install.packages("ape")
+
+library(ape)
+
+# Load your tree from the .tree file
+tree <- read.tree("/Users/sarahsouza/Downloads/iqtree-2.3.2-macOS-intel/bin/amit2.nex.treefile")
+
+# Plot the tree with rotated branch labels
+
+plot.phylo(reroottree,
+           main="Pythium and Phytophthora genera Phylogenetic tree",
+           show.tip.label = TRUE, 
+           cex = .3)
+
+
+
+```
+
+
